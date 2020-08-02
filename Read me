@@ -1,0 +1,33 @@
+
+## ex 1 
+makeCacheMatrix <- function(x = matrix()) {
+        inve <- NULL
+        set <- function(y) {
+                x <<- y
+                inv <<- NULL
+        }
+        get <- function() x
+        setInverse <- function(inverse) inve <<- inverse
+        getInverse <- function() inv
+        list(set = set,
+             get = get,
+             setInverse = setInverse,
+             getInverse = getInverse)
+}
+
+
+## ex 2 
+
+cacheSolve <- function(x, ...) {
+        inve <- x$getInverse()
+        if (!is.null(inv)) {
+                message("nodata")
+                return(inv)
+        }
+        mat <- x$get()
+        inv <- solve(mat, ...)
+        x$setInverse(inv)
+        inve
+}
+
+                
